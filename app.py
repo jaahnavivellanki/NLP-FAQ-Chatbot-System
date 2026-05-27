@@ -252,8 +252,7 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
     
-    st.divider()
-    
+    st.divider()   
     st.markdown("### 🤖 AI Assistant Features")
     st.markdown("""
     <div style='color: #D1D5DB; font-size: 0.95rem; line-height: 1.8; margin-bottom: 20px;'>
