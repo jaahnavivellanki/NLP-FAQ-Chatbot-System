@@ -210,9 +210,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------------------------------------------------
-# Top Navbar Header
-# ---------------------------------------------------------
 st.markdown("""
 <div class="navbar">
     <h2 style='margin: 0; color: #F9FAFB; display: inline-flex; align-items: center; gap: 10px;'>
@@ -222,9 +219,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ---------------------------------------------------------
 # Professional Sidebar
-# ---------------------------------------------------------
 with st.sidebar:
     st.markdown("""
     <div style='text-align: center; margin-bottom: 30px; padding-top: 20px;'>
@@ -275,9 +270,7 @@ with st.sidebar:
         st.session_state.messages = []
         st.rerun()
 
-# ---------------------------------------------------------
 # HTML Render Functions for Chat Bubbles
-# ---------------------------------------------------------
 def render_user_msg(msg, timestamp):
     return f"""
     <div class="animated-msg" style="display: flex; justify-content: flex-end; margin-bottom: 30px;">
@@ -303,9 +296,7 @@ def render_bot_msg(msg, timestamp):
     </div>
     """
 
-# ---------------------------------------------------------
 # Session State & Welcome Screen
-# ---------------------------------------------------------
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -314,7 +305,6 @@ if len(st.session_state.messages) == 0:
     st.markdown("<h1 style='text-align: center; color: #F9FAFB; margin-top: 5vh; font-size: 3.5rem; letter-spacing: -1px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));'>CampusMind AI</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; color: #9CA3AF; font-size: 1.25rem; margin-bottom: 50px;'>How can I help you with your college journey today?</p>", unsafe_allow_html=True)
     
-    # Render quick suggestion cards
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("""
@@ -342,19 +332,14 @@ if len(st.session_state.messages) == 0:
             <div style="color: #9CA3AF; font-size: 15px;">"When are the semester exams held?"</div>
         </div>
         """, unsafe_allow_html=True)
-
-# ---------------------------------------------------------
 # Display Chat History
-# ---------------------------------------------------------
 for msg in st.session_state.messages:
     if msg["role"] == "user":
         st.markdown(render_user_msg(msg["content"], msg["timestamp"]), unsafe_allow_html=True)
     else:
         st.markdown(render_bot_msg(msg["content"], msg["timestamp"]), unsafe_allow_html=True)
 
-# ---------------------------------------------------------
 # Handle User Input
-# ---------------------------------------------------------
 if prompt := st.chat_input("Message CampusMind AI..."):
     
     current_time = datetime.now().strftime("%I:%M %p")
