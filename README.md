@@ -98,7 +98,7 @@ Contains predefined FAQ questions and responses used by the chatbot.
 ### Clone Repository
 
 ```bash id="j4r5kw"
-git clone https://github.com/your-username/NLP-FAQ-Chatbot-System.git
+git clone https://github.com/jaahnavivellanki/NLP-FAQ-Chatbot-System.git
 cd NLP-FAQ-Chatbot-System
 ```
 
